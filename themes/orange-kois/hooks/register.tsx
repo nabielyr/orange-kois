@@ -378,6 +378,10 @@ const STYLE = [
   '.ripple{opacity:.3;animation:ripple 6s ease-in-out infinite}',
   '.flow{animation:flow 80s linear infinite}.flow.deep{animation-duration:140s}',
   '.band{animation:band 75s linear infinite}.band.late{animation-duration:105s;animation-delay:-48s}',
+  // The scene opens under plain water that clears after a second, so whatever
+  // settling the app does as it first lays the scene out is not seen.
+  '@keyframes veil{0%,55%{opacity:1}100%{opacity:0}}',
+  '.veil{animation:veil 1.8s ease-out both}',
   '@media (prefers-reduced-motion: reduce){*{animation:none!important}}',
 ].join('')
 
@@ -390,6 +394,8 @@ function buildScene(): string {
     water(),
     SCHOOL.map(koi).join(''),
     pads(),
+    // Clear at rest, so a scene held still shows the pond and not the veil.
+    `<rect class="veil" width="${W}" height="${H}" fill="${WATER}" opacity="0"/>`,
     '</svg>',
   ].join('')
 }
