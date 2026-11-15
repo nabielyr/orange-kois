@@ -340,22 +340,25 @@ function rippleLayer(seed: number, count: number, color: string, twinkle: boolea
 
 // A soft band of light lying across the current, leaning with it, in stepped
 // rows so it stays pixel art.
-function lightBand(width: number): string {
+// The faintness is the fill's own, not the group's: a see-through group is
+// drawn to a layer of its own every frame, and the app holds a scene still
+// when its frames cost too much.
+function lightBand(width: number, faintness: number): string {
   let d = ''
   for (let y = -2; y < H + 2; y += 2) {
     const x = Math.round(-y * 0.5)
     d += `M${x} ${y}h${width}v2h${-width}z`
   }
-  return `<path fill="#ff8a2e" d="${d}"/>`
+  return `<path fill="#ff8a2e" fill-opacity="${faintness}" d="${d}"/>`
 }
 
 function water(): string {
   return (
     // the deep layer drifts slowly, the surface layer faster: that difference is the depth
     `<g class="flow deep">${rippleLayer(11, 34, '#2a1309', false)}</g>` +
-    `<g class="flow">${rippleLayer(29, 22, '#3f1d0c', true)}</g>` +
-    `<g class="band" opacity=".05">${lightBand(34)}</g>` +
-    `<g class="band late" opacity=".035">${lightBand(18)}</g>`
+    `<g class="flow">${rippleLayer(29, 22, '#3f1d0c', false)}</g>` +
+    `<g class="band">${lightBand(34, 0.05)}</g>` +
+    `<g class="band late">${lightBand(18, 0.035)}</g>`
   )
 }
 
@@ -380,7 +383,8 @@ const STYLE = [
 
 function buildScene(): string {
   return [
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges">`,
+    // The root carries only what the official moving scenes carry.
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">`,
     `<style>${STYLE}</style>`,
     `<rect width="${W}" height="${H}" fill="${WATER}"/>`,
     water(),

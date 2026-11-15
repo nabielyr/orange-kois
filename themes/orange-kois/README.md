@@ -24,6 +24,7 @@ It follows the docs' recipe for [a backdrop behind the conversation](https://cod
 
 - `hooks/register.tsx` holds everything: the scene, the colors, the command and the hook.
 - The scene is one SVG on a 240 x 150 grid of big pixels, with a `viewBox` that covers any window. It is drawn as an interactive `Svg` and moved by CSS animation in its own `<style>`, with only `translate`, `rotate` and `opacity` in its keyframes, the way the scenes in Anthropic's `theme-examples` plugin are.
+- The desktop app holds a scene still when it uses something outside what it allows, or costs too much to draw each frame. This scene stood still until its root lost a `shape-rendering` attribute and its faint bands of light took their faintness from `fill-opacity` instead of a see-through group, so it keeps to plain elements and cheap frames.
 - Each route is a closed Catmull-Rom curve through a few points. Its lap is worked out once, as a list of places and headings at a steady pace, and written as one `@keyframes` that every koi on the route shares, each starting partway through.
 - A koi is three sprites (head, middle, tail). The middle swings from the head and the tail from the middle, a little out of step, which makes the wave.
 - `hooks/make-colors.js` and `make-colors.d.ts` are copied unchanged from Claude Code's plugin-authoring skill, as its guide for themes says to. Copy them again when your build updates.
