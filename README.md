@@ -1,3 +1,5 @@
+![The orange-kois scene: a dark pond seen from above, with orange-and-white pixel koi swimming among amber lily pads](assets/orange-kois.svg)
+
 # orange-kois
 
 An animated theme for the Code tab of the Claude desktop app. It recolors the app in warm orange on near-black and paints a pixel-art koi pond behind your conversation. Under the hood it is a Claude Code [mod](https://code.claude.com/docs/en/plugins/mods/overview) packaged as a plugin.

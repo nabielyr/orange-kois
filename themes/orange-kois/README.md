@@ -1,5 +1,7 @@
 # orange-kois
 
+![The orange-kois scene: a dark pond seen from above, with orange-and-white pixel koi swimming among amber lily pads](../../assets/orange-kois.svg)
+
 A theme for the Code tab of the Claude desktop app: a dark pond seen from above, in pixel art, with the app recolored in warm orange on near-black.
 
 - **Koi**: seven orange-and-white koi in four colorings. Three swim a long wavy lap around the pond, two a small loop on the left, and two circle a lotus on the right. They turn to face along their routes, and their bodies flex from head to tail.
