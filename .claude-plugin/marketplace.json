@@ -1,0 +1,16 @@
+{
+  "name": "orange-kois",
+  "owner": { "name": "nabielyr", "url": "https://github.com/nabielyr" },
+  "metadata": {
+    "description": "Themes for the Code tab of the Claude desktop app: warm orange colors and a pixel koi pond behind the conversation"
+  },
+  "plugins": [
+    {
+      "name": "orange-kois",
+      "source": "./themes/orange-kois",
+      "description": "A dark pond in pixel art: orange-and-white koi on curved routes, amber lily pads and a slow current, with warm orange app colors",
+      "version": "0.1.0",
+      "category": "theme"
+    }
+  ]
+}

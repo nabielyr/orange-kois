@@ -1,0 +1,10 @@
+{
+  "name": "orange-kois",
+  "version": "0.1.0",
+  "description": "A theme for the Claude desktop app: a dark pixel-art pond with orange-and-white koi, amber lily pads and a slow current, plus warm orange app colors",
+  "author": { "name": "nabielyr", "url": "https://github.com/nabielyr" },
+  "homepage": "https://github.com/nabielyr/orange-kois",
+  "repository": "https://github.com/nabielyr/orange-kois",
+  "license": "MIT",
+  "keywords": ["mod", "theme", "backdrop", "koi", "pixel-art", "orange", "dark"]
+}
